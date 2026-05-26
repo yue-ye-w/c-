@@ -1,0 +1,24 @@
+/**
+给定10个数据, 
+求最大值出现的位置(即最大值的下标+1）
+（如果最大值出现多次，求出第一次出现的位置即可)。
+**/
+#include<stdio.h>
+int main(void)
+{
+	int x, max, pos;
+	scanf("%d",&max);
+	pos = 1;
+	for (int i = 2;i <= 10;i++)
+	{
+		scanf("%d", &x);
+		if (x > max)
+		{
+			max = x;
+			pos = i;
+
+		}
+	}
+	printf("%d", pos);
+    return 0;
+}
