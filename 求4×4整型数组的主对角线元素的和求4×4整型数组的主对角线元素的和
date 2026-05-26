@@ -1,0 +1,27 @@
+/**
+求4×4整型数组的主对角线元素的和，请编fun函数。
+**/
+#include <stdio.h>
+int fun(int a[4][4])
+{
+	int sum = 0;
+	for (int i = 0;i < 4;i++)
+	{
+		sum += a[i][i];
+	}
+	return sum;
+}
+int main(void)
+{
+	int a[4][4];
+	for (int i =0;i<4;i++)
+	{ 
+		printf("请输入第 % 4d行的元素", i + 1);
+		for (int j = 0;j < 4;j++)
+		{
+			scanf("%d", &a[i][j]);
+		}
+	}
+	printf("%d", fun(a));
+	return 0;
+}
