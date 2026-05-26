@@ -1,0 +1,59 @@
+/**
+用二维数组作为函数参数，
+编程计算并输出n×n阶矩阵的转置矩阵。
+其中，n的值不超过10，n的值由用户从键盘输入。/
+**/
+#include <stdio.h>
+#define MAX 10
+void transpose(int a[][MAX], int b[][MAX], int n)//函数声明：行列互换
+{
+	int i, j;
+	for (i = 0;i < n;i++)
+	{
+		for (j = 0;j < n;j++)
+		{
+			b[j][i] = a[i][j];
+		}
+	}
+}
+void printMatrix(int m[][MAX], int n)
+{
+	int i, j;
+	for (i = 0;i < n;i++)
+	{
+		for (j = 0;j < n;j++)
+		{
+			printf("%4d ", m[i][j]);
+		}
+		printf("\n");
+	}
+}
+int main()
+{
+	int n;
+	int a[MAX][MAX], b[MAX][MAX];
+	int i ,j;
+	printf("请输入矩阵的阶数n（1-10）:");
+	scanf("%d", &n);
+	if (n < 1 || n > MAX)
+	{
+		printf("请检查输入的阶数是否合法！\n");
+		return 1;
+	}
+//2.输入矩阵元素
+	printf("请输入%d×%d阶矩阵的元素：(按行输入,每行元素用空格分隔)\n", n, n);
+	for (i = 0;i < n;i++)
+	{
+		printf("第%d行: ", i + 1);//提示输入每行元素
+		for (j = 0;j < n;j++)
+		{
+			scanf("%d", &a[i][j]);
+		}
+	}
+	//3.调用函数进行转置
+	transpose(a, b, n);
+	//4.输出转置后的矩阵
+	printf("转置后的矩阵为：\n");
+	printMatrix(b, n);
+	return 0;
+}
